@@ -1,9 +1,23 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 
 type Props = {};
 
+type Task = {
+  label: string;
+};
+
 const ListScreen: React.FC<Props> = () => {
-  return <div>List view 2</div>;
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [newTaskLabel, setNewTaskLabel] = useState("");
+
+  const handleNewTaskLabelChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setNewTaskLabel(e.target.value);
+
+  return (
+    <div>
+      <input value={newTaskLabel} onChange={handleNewTaskLabelChange} />
+    </div>
+  );
 };
 
 export default ListScreen;
