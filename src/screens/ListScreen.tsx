@@ -16,8 +16,9 @@ const ListScreen: React.FC<Props> = () => {
     setNewTaskLabel(e.target.value);
 
   const handleNewTaskKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && newTaskLabel !== "") {
       setTasks((tasks) => [...tasks, { id: nanoid(), label: newTaskLabel }]);
+      setNewTaskLabel("");
     }
   };
 
