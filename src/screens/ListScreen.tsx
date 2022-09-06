@@ -32,7 +32,9 @@ const ListScreen: React.FC<Props> = () => {
     );
   };
 
-  console.log(tasks);
+  const handleClearClick = () => {
+    setTasks((tasks) => tasks.filter((task) => !task.isComplete));
+  };
 
   return (
     <div>
@@ -53,6 +55,9 @@ const ListScreen: React.FC<Props> = () => {
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
+      <div>
+        <button onClick={handleClearClick}>Clear Completed</button>
+      </div>
     </div>
   );
 };
