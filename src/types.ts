@@ -3,3 +3,8 @@ export type Task = {
   label: string;
   isComplete: boolean;
 };
+
+export type TasksProps = {
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+};

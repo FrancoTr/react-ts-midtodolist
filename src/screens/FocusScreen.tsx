@@ -1,6 +1,7 @@
 import React from "react";
+import { TasksProps } from "../types";
 
-type Props = {};
+type Props = TasksProps & {};
 
 const FocusScreen: React.FC<Props> = () => {
   return <div>Focus Screen</div>;

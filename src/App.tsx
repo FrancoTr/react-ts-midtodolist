@@ -6,6 +6,7 @@ import { Task } from "./types";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const tasksProps = { tasks, setTasks };
   const activeStyle = {
     fontWeight: "bold",
   };
@@ -23,8 +24,8 @@ function App() {
       </nav>
       <br />
       <Routes>
-        <Route path='/' element={<ListScreen />} />
-        <Route path='/focus' element={<FocusScreen />} />
+        <Route path='/' element={<ListScreen {...tasksProps} />} />
+        <Route path='/focus' element={<FocusScreen {...tasksProps} />} />
       </Routes>
     </BrowserRouter>
   );
