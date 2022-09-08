@@ -3,12 +3,6 @@ import { nanoid } from "nanoid";
 
 type Props = {};
 
-type Task = {
-  id: string;
-  label: string;
-  isComplete: boolean;
-};
-
 const ListScreen: React.FC<Props> = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskLabel, setNewTaskLabel] = useState("");

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import FocusScreen from "./screens/FocusScreen";
 import ListScreen from "./screens/ListScreen";
+import { Task } from "./types";
 
 function App() {
+  const [tasks, setTasks] = useState<Task[]>([]);
   const activeStyle = {
     fontWeight: "bold",
   };
