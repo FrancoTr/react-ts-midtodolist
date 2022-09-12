@@ -6,7 +6,17 @@ import { Task } from "./types";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const tasksProps = { tasks, setTasks };
+
+  const updateTaskCompletion = (taskId: string, isComplete: boolean) => {
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task.id === taskId) return { ...task, isComplete };
+        return task;
+      })
+    );
+  };
+
+  const tasksApi = { tasks, setTasks, updateTaskCompletion };
   const activeStyle = {
     fontWeight: "bold",
   };
@@ -24,8 +34,8 @@ function App() {
       </nav>
       <br />
       <Routes>
-        <Route path='/' element={<ListScreen {...tasksProps} />} />
-        <Route path='/focus' element={<FocusScreen {...tasksProps} />} />
+        <Route path='/' element={<ListScreen {...tasksApi} />} />
+        <Route path='/focus' element={<FocusScreen {...tasksApi} />} />
       </Routes>
     </BrowserRouter>
   );
