@@ -16,7 +16,9 @@ function App() {
     );
   };
 
-  const tasksApi = { tasks, setTasks, updateTaskCompletion };
+  const focusedTask = tasks.filter((task) => !task.isComplete)[0];
+
+  const tasksApi = { focusedTask, tasks, setTasks, updateTaskCompletion };
   const activeStyle = {
     fontWeight: "bold",
   };
