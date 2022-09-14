@@ -4,7 +4,8 @@ import { TasksProps } from "../types";
 type Props = TasksProps & {};
 
 const FocusScreen: React.FC<Props> = ({ tasks, updateTaskCompletion }) => {
-  const task = tasks[0];
+  const task = tasks.filter((task) => !task.isComplete)[0];
+
   const handleMarkCompleted = () => {
     updateTaskCompletion(task.id, true);
   };
@@ -15,7 +16,7 @@ const FocusScreen: React.FC<Props> = ({ tasks, updateTaskCompletion }) => {
       <button onClick={handleMarkCompleted}>Mark Completed</button>
     </div>
   ) : (
-    <div>No Tasks</div>
+    <div>No incomplete Tasks</div>
   );
 };
 
