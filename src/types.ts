@@ -5,7 +5,7 @@ export type Task = {
 };
 
 export type TasksProps = {
-  focusedTask: Task | null;
+  focusedTask?: Task;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   updateTaskCompletion: (taskId: string, isComplete: boolean) => void;
