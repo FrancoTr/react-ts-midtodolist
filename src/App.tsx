@@ -4,10 +4,15 @@ import FocusScreen from "./screens/FocusScreen";
 import ListScreen from "./screens/ListScreen";
 import { Task } from "./types";
 import { shuffle } from "lodash";
+import { nanoid } from "nanoid";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(undefined);
+
+  const addTask = (task: Pick<Task, "label">) => {
+    setTasks((tasks) => [...tasks, { id: nanoid(), label: task.label, isComplete: false }]);
+  };
 
   const updateTaskCompletion = (taskId: string, isComplete: boolean) => {
     setTasks((tasks) =>
@@ -24,7 +29,14 @@ function App() {
     setFocusedTaskId(shuffle(tasks.filter((task) => !task.isComplete))[0]?.id);
   };
 
-  const tasksApi = { focusedTask, tasks, setTasks, updateTaskCompletion };
+  const tasksApi = {
+    addTask,
+    focusedTask,
+    tasks,
+    setTasks,
+    shuffleFocusedTask,
+    updateTaskCompletion,
+  };
   const activeStyle = {
     fontWeight: "bold",
   };
