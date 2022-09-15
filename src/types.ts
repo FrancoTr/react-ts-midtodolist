@@ -9,5 +9,6 @@ export type TasksProps = {
   focusedTask?: Task;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  shuffleFocusedTask: () => void;
   updateTaskCompletion: (taskId: string, isComplete: boolean) => void;
 };
