@@ -8,43 +8,6 @@ import { nanoid } from "nanoid";
 import useLocalStorage from "./hooks/use-local-storage";
 
 function App() {
-  const [tasks, setTasks] = useLocalStorage<Task[]>("tasks", []);
-  const [focusedTaskId, setFocusedTaskId] = useLocalStorage<string | undefined>(
-    "focused",
-    undefined
-  );
-
-  const addTask = (task: Pick<Task, "label">) => {
-    const id = nanoid();
-    setTasks((tasks) => [...tasks, { id: nanoid(), label: task.label, isComplete: false }]);
-    if (!focusedTaskId) {
-      setFocusedTaskId(id);
-    }
-  };
-
-  const updateTaskCompletion = (taskId: string, isComplete: boolean) => {
-    setTasks((tasks) =>
-      tasks.map((task) => {
-        if (task.id === taskId) return { ...task, isComplete };
-        return task;
-      })
-    );
-  };
-
-  const focusedTask = tasks.find((task) => task.id === focusedTaskId);
-
-  const shuffleFocusedTask = () => {
-    setFocusedTaskId(shuffle(tasks.filter((task) => !task.isComplete))[0]?.id);
-  };
-
-  const tasksApi = {
-    addTask,
-    focusedTask,
-    tasks,
-    setTasks,
-    shuffleFocusedTask,
-    updateTaskCompletion,
-  };
   const activeStyle = {
     fontWeight: "bold",
   };
