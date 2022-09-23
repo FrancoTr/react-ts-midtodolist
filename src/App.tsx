@@ -6,28 +6,33 @@ import { Task } from "./types";
 import { shuffle } from "lodash";
 import { nanoid } from "nanoid";
 import useLocalStorage from "./hooks/use-local-storage";
+import TaskContext from "./contexts/task-store";
 
 function App() {
+  const [tasks, setTasks] = useLocalStorage<Task[]>("tasks", []);
+
   const activeStyle = {
     fontWeight: "bold",
   };
 
   return (
     <BrowserRouter>
-      <nav>
-        <NavLink to='/' style={({ isActive }) => (isActive ? activeStyle : {})}>
-          List View
-        </NavLink>{" "}
-        -{" "}
-        <NavLink to='/focus' style={({ isActive }) => (isActive ? activeStyle : {})}>
-          Focus View
-        </NavLink>
-      </nav>
-      <br />
-      <Routes>
-        <Route path='/' element={<ListScreen {...tasksApi} />} />
-        <Route path='/focus' element={<FocusScreen {...tasksApi} />} />
-      </Routes>
+      <TaskContext.Provider value={[tasks, setTasks]}>
+        <nav>
+          <NavLink to='/' style={({ isActive }) => (isActive ? activeStyle : {})}>
+            List View
+          </NavLink>{" "}
+          -{" "}
+          <NavLink to='/focus' style={({ isActive }) => (isActive ? activeStyle : {})}>
+            Focus View
+          </NavLink>
+        </nav>
+        <br />
+        <Routes>
+          <Route path='/' element={<ListScreen />} />
+          <Route path='/focus' element={<FocusScreen />} />
+        </Routes>
+      </TaskContext.Provider>
     </BrowserRouter>
   );
 }

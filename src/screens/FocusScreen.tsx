@@ -1,13 +1,11 @@
 import React from "react";
+import useTaskStore from "../hooks/use-task-store";
 import { TasksProps } from "../types";
 
-type Props = TasksProps & {};
+type Props = {};
 
-const FocusScreen: React.FC<Props> = ({
-  focusedTask: task,
-  shuffleFocusedTask,
-  updateTaskCompletion,
-}) => {
+const FocusScreen: React.FC<Props> = () => {
+  const { focusedTask: task, shuffleFocusedTask, updateTaskCompletion } = useTaskStore();
   const handleMarkCompleted = () => {
     if (task) {
       updateTaskCompletion(task.id, true);
