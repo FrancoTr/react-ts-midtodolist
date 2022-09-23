@@ -4,11 +4,12 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import TaskContext from "../contexts/task-store";
 import { Task } from "../types";
-import useLocalStorage from "./use-local-storage";
 
 const useTaskStore = () => {
   const [tasks, setTasks] = useContext(TaskContext);
-  const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(undefined);
+  const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(
+    tasks.filter((task) => !task.isComplete)[0]?.id
+  );
 
   const addTask = (task: Pick<Task, "label">) => {
     const id = nanoid();
