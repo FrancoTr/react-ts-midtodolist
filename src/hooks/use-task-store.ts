@@ -7,9 +7,8 @@ import { Task } from "../types";
 
 const useTaskStore = () => {
   const [tasks, setTasks] = useContext(TaskContext);
-  const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(
-    tasks.filter((task) => !task.isComplete)[0]?.id
-  );
+  const getIncompleteTask = () => tasks.filter((task) => !task.isComplete)[0]?.id;
+  const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(getIncompleteTask());
 
   const addTask = (task: Pick<Task, "label">) => {
     const id = nanoid();
