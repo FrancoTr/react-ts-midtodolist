@@ -6,6 +6,7 @@ import { Task } from "./types";
 import useLocalStorage from "./hooks/use-local-storage";
 import TaskContext from "./contexts/task-store";
 import styled from "styled-components";
+import { colors } from "./styles";
 
 const Nav = styled.nav`
   display: flex;
@@ -22,7 +23,18 @@ const TabButton = styled(NavLink)`
   text-decoration: none;
   width: 120px;
 
+  &:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  &:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
   &.active {
+    background: ${colors.primary};
+    color: #000;
   }
 `;
 
