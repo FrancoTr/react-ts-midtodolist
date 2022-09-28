@@ -7,11 +7,23 @@ import useLocalStorage from "./hooks/use-local-storage";
 import TaskContext from "./contexts/task-store";
 import styled from "styled-components";
 
+const Nav = styled.nav`
+  display: flex;
+`;
+
 const TabButton = styled(NavLink)`
+  align-items: center;
   width: 120px;
+  background: #000;
   color: #fff;
+  display: flex;
   height: 62px;
+  justify-content: center;
+  text-decoration: none;
   width: 120px;
+
+  &.active {
+  }
 `;
 
 function App() {
@@ -20,10 +32,14 @@ function App() {
   return (
     <BrowserRouter>
       <TaskContext.Provider value={[tasks, setTasks]}>
-        <nav>
-          <TabButton to='/'>List View</TabButton>
-          <TabButton to='/focus'>Focus View</TabButton>
-        </nav>
+        <Nav>
+          <TabButton to='/' className={({ isActive }) => (isActive ? "active" : "")}>
+            List View
+          </TabButton>
+          <TabButton to='/focus' className={({ isActive }) => (isActive ? "active" : "")}>
+            Focus View
+          </TabButton>
+        </Nav>
         <br />
         <Routes>
           <Route path='/' element={<ListScreen />} />
