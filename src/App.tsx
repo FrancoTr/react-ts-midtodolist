@@ -8,6 +8,12 @@ import TaskContext from "./contexts/task-store";
 import styled from "styled-components";
 import { colors, GlobalStyle } from "./styles";
 
+const Layout = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
 const Nav = styled.nav`
   display: flex;
 `;
@@ -46,19 +52,21 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <TaskContext.Provider value={[tasks, setTasks]}>
-          <Nav>
-            <TabButton to='/' className={({ isActive }) => (isActive ? "active" : "")}>
-              List View
-            </TabButton>
-            <TabButton to='/focus' className={({ isActive }) => (isActive ? "active" : "")}>
-              Focus View
-            </TabButton>
-          </Nav>
-          <br />
-          <Routes>
-            <Route path='/' element={<ListScreen />} />
-            <Route path='/focus' element={<FocusScreen />} />
-          </Routes>
+          <Layout>
+            <Nav>
+              <TabButton to='/' className={({ isActive }) => (isActive ? "active" : "")}>
+                List View
+              </TabButton>
+              <TabButton to='/focus' className={({ isActive }) => (isActive ? "active" : "")}>
+                Focus View
+              </TabButton>
+            </Nav>
+            <br />
+            <Routes>
+              <Route path='/' element={<ListScreen />} />
+              <Route path='/focus' element={<FocusScreen />} />
+            </Routes>
+          </Layout>
         </TaskContext.Provider>
       </BrowserRouter>
     </>
