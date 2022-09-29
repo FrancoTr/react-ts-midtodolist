@@ -12,10 +12,12 @@ const Layout = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 35px;
 `;
 
 const Nav = styled.nav`
   display: flex;
+  margin-bottom: 45px;
 `;
 
 const TabButton = styled(NavLink)`
@@ -61,7 +63,6 @@ function App() {
                 Focus View
               </TabButton>
             </Nav>
-            <br />
             <Routes>
               <Route path='/' element={<ListScreen />} />
               <Route path='/focus' element={<FocusScreen />} />
