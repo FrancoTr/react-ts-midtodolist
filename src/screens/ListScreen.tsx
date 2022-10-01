@@ -4,6 +4,11 @@ import useTaskStore from "../hooks/use-task-store";
 import { Task } from "../types";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+const List = styled.div`
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
 `;
@@ -37,8 +42,8 @@ const ListScreen: React.FC<Props> = () => {
   };
 
   return (
-    <div>
-      <Container>
+    <Container>
+      <List>
         {tasks.map((task) => (
           <div key={task.id}>
             <input
@@ -50,16 +55,14 @@ const ListScreen: React.FC<Props> = () => {
             <button onClick={handleTaskDeleteClick(task)}>Delete</button>
           </div>
         ))}
-      </Container>
+      </List>
       <input
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
-      <div>
-        <button onClick={handleClearClick}>Clear Completed</button>
-      </div>
-    </div>
+      <button onClick={handleClearClick}>Clear Completed</button>
+    </Container>
   );
 };
 
