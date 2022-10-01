@@ -1,6 +1,12 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from "react";
+import styled from "styled-components";
 import useTaskStore from "../hooks/use-task-store";
 import { Task } from "../types";
+
+const Container = styled.div`
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+`;
 
 type Props = {};
 
@@ -32,7 +38,7 @@ const ListScreen: React.FC<Props> = () => {
 
   return (
     <div>
-      <div>
+      <Container>
         {tasks.map((task) => (
           <div key={task.id}>
             <input
@@ -44,7 +50,7 @@ const ListScreen: React.FC<Props> = () => {
             <button onClick={handleTaskDeleteClick(task)}>Delete</button>
           </div>
         ))}
-      </div>
+      </Container>
       <input
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
