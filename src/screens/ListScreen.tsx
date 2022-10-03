@@ -3,6 +3,7 @@ import styled from "styled-components";
 import useTaskStore from "../hooks/use-task-store";
 import { Task } from "../types";
 import TextButton from "../components/TextButton";
+import Spacer from "../components/Spacer";
 
 const Container = styled.div`
   display: flex;
@@ -65,11 +66,13 @@ const ListScreen: React.FC<Props> = () => {
           </div>
         ))}
       </List>
+      <Spacer height={30} />
       <Input
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
+      <Spacer height={45} />
       <TextButton onClick={handleClearClick} style={{ alignSelf: "center" }}>
         Clear Completed
       </TextButton>
