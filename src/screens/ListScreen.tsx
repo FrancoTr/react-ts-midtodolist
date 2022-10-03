@@ -62,7 +62,9 @@ const ListScreen: React.FC<Props> = () => {
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
-      <TextButton onClick={handleClearClick}>Clear Completed</TextButton>
+      <TextButton onClick={handleClearClick} style={{ alignSelf: "center" }}>
+        Clear Completed
+      </TextButton>
     </Container>
   );
 };
