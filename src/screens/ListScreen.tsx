@@ -14,6 +14,14 @@ const List = styled.div`
   background: rgba(255, 255, 255, 0.1);
 `;
 
+const Input = styled.input`
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  padding: 20px 24px;
+`;
+
 type Props = {};
 
 const ListScreen: React.FC<Props> = () => {
@@ -57,7 +65,7 @@ const ListScreen: React.FC<Props> = () => {
           </div>
         ))}
       </List>
-      <input
+      <Input
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
