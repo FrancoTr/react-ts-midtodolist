@@ -2,6 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import styled from "styled-components";
 import useTaskStore from "../hooks/use-task-store";
 import { Task } from "../types";
+import TextButton from "../components/TextButton";
 
 const Container = styled.div`
   display: flex;
@@ -61,7 +62,7 @@ const ListScreen: React.FC<Props> = () => {
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
-      <button onClick={handleClearClick}>Clear Completed</button>
+      <TextButton onClick={handleClearClick}>Clear Completed</TextButton>
     </Container>
   );
 };
