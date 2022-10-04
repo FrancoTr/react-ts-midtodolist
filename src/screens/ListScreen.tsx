@@ -25,6 +25,13 @@ const ListItem = styled.label`
   margin-bottom: 8px;
 `;
 
+const DeleteButton = styled(IconButton)`
+  visibility: hidden;
+  ${ListItem}:hover & {
+    visibility: visible;
+  }
+`;
+
 const Input = styled.input`
   background: rgba(0, 0, 0, 0.5);
   border: none;
@@ -73,9 +80,9 @@ const ListScreen: React.FC<Props> = () => {
             />
             {task.label}
             <Spacer flex={1} />
-            <IconButton onClick={handleTaskDeleteClick(task)}>
+            <DeleteButton onClick={handleTaskDeleteClick(task)}>
               <DeleteIcon />
-            </IconButton>
+            </DeleteButton>
           </ListItem>
         ))}
       </List>
