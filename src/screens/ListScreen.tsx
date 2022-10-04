@@ -22,7 +22,7 @@ const List = styled.div`
 
 const ListItem = styled.label`
   display: flex;
-  margin-bottom: 8px;
+  padding: 4px 0;
 `;
 
 const DeleteButton = styled(IconButton)`
