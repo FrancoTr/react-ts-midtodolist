@@ -88,6 +88,7 @@ const ListScreen: React.FC<Props> = () => {
       </List>
       <Spacer height={30} />
       <Input
+        placeholder='Add a task'
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
