@@ -11,9 +11,14 @@ const Container = styled.div`
   align-items: stretch;
 `;
 const List = styled.div`
-  border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 45px 24px;
 `;
+
+const ListItem = styled.label``;
 
 const Input = styled.input`
   background: rgba(0, 0, 0, 0.5);
@@ -55,7 +60,7 @@ const ListScreen: React.FC<Props> = () => {
     <Container>
       <List>
         {tasks.map((task) => (
-          <div key={task.id}>
+          <ListItem key={task.id}>
             <input
               type='checkbox'
               checked={task.isComplete}
@@ -63,7 +68,7 @@ const ListScreen: React.FC<Props> = () => {
             />
             {task.label}
             <button onClick={handleTaskDeleteClick(task)}>Delete</button>
-          </div>
+          </ListItem>
         ))}
       </List>
       <Spacer height={30} />
