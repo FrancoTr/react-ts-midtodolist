@@ -1,9 +1,12 @@
 import React from "react";
 
-type Props = { height: number; width?: never } | { height?: never; width: number };
+type Props =
+  | { flex: number; height?: never; width?: never }
+  | { flex?: never; height: number; width?: never }
+  | { flex?: never; height?: never; width: number };
 
-const Spacer: React.FC<Props> = ({ height, width }) => {
-  return <div style={{ height, width }}></div>;
+const Spacer: React.FC<Props> = ({ flex, height, width }) => {
+  return <div style={{ flex, height, width }}></div>;
 };
 
 export default Spacer;

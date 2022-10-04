@@ -18,7 +18,10 @@ const List = styled.div`
   padding: 45px 24px;
 `;
 
-const ListItem = styled.label``;
+const ListItem = styled.label`
+  display: flex;
+  margin-bottom: 8px;
+`;
 
 const Input = styled.input`
   background: rgba(0, 0, 0, 0.5);
@@ -67,6 +70,7 @@ const ListScreen: React.FC<Props> = () => {
               onChange={handleTaskCompleteChange(task)}
             />
             {task.label}
+            <Spacer flex={1} />
             <button onClick={handleTaskDeleteClick(task)}>Delete</button>
           </ListItem>
         ))}
