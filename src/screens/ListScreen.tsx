@@ -5,6 +5,7 @@ import { Task } from "../types";
 import TextButton from "../components/TextButton";
 import Spacer from "../components/Spacer";
 import DeleteIcon from "../icons/DeleteIcon";
+import IconButton from "../components/IconButton";
 
 const Container = styled.div`
   display: flex;
@@ -72,9 +73,9 @@ const ListScreen: React.FC<Props> = () => {
             />
             {task.label}
             <Spacer flex={1} />
-            <button onClick={handleTaskDeleteClick(task)}>
+            <IconButton onClick={handleTaskDeleteClick(task)}>
               <DeleteIcon />
-            </button>
+            </IconButton>
           </ListItem>
         ))}
       </List>
