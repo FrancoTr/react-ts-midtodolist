@@ -21,6 +21,7 @@ const List = styled.div`
 `;
 
 const ListItem = styled.label`
+  align-items: center;
   display: flex;
   font-size: 18px;
   padding: 4px 0;
