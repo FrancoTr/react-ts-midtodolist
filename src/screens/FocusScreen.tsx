@@ -7,6 +7,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+`;
+
+const Task = styled.div`
+  flex: 1;
 `;
 
 type Props = {};
@@ -21,7 +26,7 @@ const FocusScreen: React.FC<Props> = () => {
 
   return task ? (
     <Container>
-      <div>{task.label}</div>
+      <Task>{task.label}</Task>
       <button onClick={handleMarkCompleted}>Mark Completed</button>
       <TextButton onClick={shuffleFocusedTask}>Nope!</TextButton>
     </Container>
