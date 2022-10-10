@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/Button";
 import TextButton from "../components/TextButton";
 import useTaskStore from "../hooks/use-task-store";
 
@@ -31,7 +32,7 @@ const FocusScreen: React.FC<Props> = () => {
   return task ? (
     <Container>
       <Task>{task.label}</Task>
-      <button onClick={handleMarkCompleted}>Mark Completed</button>
+      <Button onClick={handleMarkCompleted}>Mark Completed</Button>
       <TextButton onClick={shuffleFocusedTask}>Nope!</TextButton>
     </Container>
   ) : (
