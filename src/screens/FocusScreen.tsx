@@ -11,7 +11,11 @@ const Container = styled.div`
 `;
 
 const Task = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 32px;
   flex: 1;
+  justify-content: center;
 `;
 
 type Props = {};
