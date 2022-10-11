@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import Spacer from "../components/Spacer";
 import TextButton from "../components/TextButton";
 import useTaskStore from "../hooks/use-task-store";
 
@@ -33,6 +34,7 @@ const FocusScreen: React.FC<Props> = () => {
     <Container>
       <Task>{task.label}</Task>
       <Button onClick={handleMarkCompleted}>Mark Completed</Button>
+      <Spacer height={45} />
       <TextButton onClick={shuffleFocusedTask}>Nope!</TextButton>
     </Container>
   ) : (
