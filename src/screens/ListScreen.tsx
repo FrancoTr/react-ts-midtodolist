@@ -6,6 +6,7 @@ import TextButton from "../components/TextButton";
 import Spacer from "../components/Spacer";
 import DeleteIcon from "../icons/DeleteIcon";
 import IconButton from "../components/IconButton";
+import Checkbox from "../components/Checkbox";
 
 const Container = styled.div`
   display: flex;
@@ -75,11 +76,7 @@ const ListScreen: React.FC<Props> = () => {
       <List>
         {tasks.map((task) => (
           <ListItem key={task.id}>
-            <input
-              type='checkbox'
-              checked={task.isComplete}
-              onChange={handleTaskCompleteChange(task)}
-            />
+            <Checkbox checked={task.isComplete} onChange={handleTaskCompleteChange(task)} />
             <Spacer width={24} />
             {task.label}
             <Spacer flex={1} />

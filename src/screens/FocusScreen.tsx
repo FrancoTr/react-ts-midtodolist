@@ -18,6 +18,7 @@ const Task = styled.div`
   font-size: 32px;
   flex: 1;
   justify-content: center;
+  padding-bottom: 45px;
 `;
 
 type Props = {};
