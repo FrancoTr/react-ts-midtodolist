@@ -32,12 +32,11 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
 
 type Props = ComponentProps<StyledComponent<"input", any, {}>> & {
   checked: boolean;
-  onChange: 
 };
 
 const Checkbox: React.FC<Props> = ({ checked, ...props }) => (
   <CheckboxContainer>
-    <HiddenCheckbox {...props} type="checkbox" checked={checked} />
+    <HiddenCheckbox {...props} type='checkbox' checked={checked} />
     <StyledCheckbox checked={checked} />
   </CheckboxContainer>
 );
