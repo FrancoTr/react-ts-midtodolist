@@ -1,5 +1,6 @@
-import React, { ComponentProps, HTMLProps } from "react";
-import styled, { StyledComponent, StyledComponentProps } from "styled-components";
+import React, { ComponentProps } from "react";
+import styled, { StyledComponent } from "styled-components";
+import { colors } from "../styles";
 
 const CheckboxContainer = styled.div`
   display: inline-block;
@@ -23,11 +24,12 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
 
 const StyledCheckbox = styled.div<{ checked: boolean }>`
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  background: ${(props) => (props.checked ? "salmon" : "papayawhip")};
-  border-radius: 3px;
-  transition: all 150ms;
+  width: 25px;
+  height: 25px;
+  background: ${(props) => (props.checked ? colors.primary : "none")};
+  border: 3px solid ${colors.primary}
+  border-radius: 25px;
+  transition: all 100ms;
 `;
 
 type Props = ComponentProps<StyledComponent<"input", any, {}>> & {
